@@ -23,7 +23,7 @@ You have to have installed following before running the example:
 
 ## ⚡️ Usage
 
-After _Prerequisites_ step is complete run the following commands.
+After _Prerequisites_ step is complete follow the next steps.
 
 1. Navigate to root of the project
 
