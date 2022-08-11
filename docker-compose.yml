@@ -69,7 +69,7 @@ services:
       timeout: 5s
       retries: 6
     networks:
-      - selsof_local
+      - crudnode_local
 
   adminer:
     container_name: adminer
