@@ -1,0 +1,68 @@
+version: '3.7'
+services:
+  # https://gist.github.com/delgod/f8d071d47dbaa57e7cad49bdb219b7d8
+  mysql:
+    image: mysql:8
+    container_name: mysql
+    restart: on-failure
+    tty: true
+    stdin_open: true
+    environment:
+      MYSQL_DATABASE: ${MYSQL_DATABASE}
+      MYSQL_USER: ${MYSQL_USER}
+      MYSQL_PASSWORD: ${MYSQL_PASSWORD}
+      MYSQL_ROOT_USER: ${MYSQL_ROOT_USER}
+      MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
+      MYSQL_MAX_ALLOWED_PACKET: 2018M
+      BACKUP_NAME: BACKUP_DB_LOCAL_
+      CONTAINER_NAME: mysql
+    command: --character-set-server=${MYSQL_CHARSET} --collation-server=${MYSQL_COLLATION}
+    ports:
+      - '${MYSQL_DATABASE_PORT}:${MYSQL_DATABASE_PORT}'
+    expose:
+      - '${MYSQL_DATABASE_PORT}'
+    volumes:
+      - mysql_data:/var/lib/mysql:rw
+      # bind mount my local my.cnf
+      # - $PWD/my.cnf:/etc/my.cnf.d/my.cnf
+    healthcheck:
+      test: '/usr/bin/mysql --user=root --password=root --execute "SHOW DATABASES;"'
+      interval: 15s
+      timeout: 5s
+      retries: 6
+    labels:
+      db_ro_version: 1.0.0
+      db_ro_author: Delimia
+      db_ro_licence: MIT
+      db_ro_description: Database RO
+    networks:
+      - crudnode_local
+
+  adminer:
+    container_name: adminer
+    image: adminer:4.8.1
+    ports:
+      - 8080:8080
+    restart: on-failure
+    environment:
+      # https://github.com/wodby/php
+      ADMINER_DEFAULT_DB_DRIVER: mysql
+      ADMINER_DEFAULT_DB_HOST: mariadb
+      ADMINER_DEFAULT_DB_NAME: adminer
+      ADMINER_DESIGN: hydra
+      PHP_CLI_MEMORY_LIMIT: 512M
+      PHP_MAX_EXECUTION_TIME: 0
+      PHP_POST_MAX_SIZE: 512M
+      PHP_UPLOAD_MAX_FILESIZE: 512M
+    networks:
+      - crudnode_local
+
+volumes:
+  mysql_data:
+    name: mysql_data
+    driver: local
+
+networks:
+  crudnode_local:
+    name: crudnode_local
+    driver: bridge

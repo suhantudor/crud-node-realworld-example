@@ -1,0 +1,67 @@
+{
+  "name": "crud-node-realworld-example",
+  "version": "1.0.0",
+  "description": "Crud Node Realworld Example",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "files": [
+    "/dist"
+  ],
+  "directories": {
+    "src": "src"
+  },
+  "_moduleAliases": {
+    "src": "dist/src"
+  },
+  "scripts": {
+    "build": "npm run clean && tsc -b",
+    "clean": "shx rm -rf dist",
+    "watch": "tsc --watch",
+    "start:local": "npm run build && cross-env NODE_ENV=development NODE_PATH=. nodemon dist/index.js",
+    "start:dev": "cross-env NODE_ENV=development NODE_PATH=. node dist/index.js",
+    "start:prod": "cross-env NODE_ENV=production NODE_PATH=. node dist/index.js",
+    "debug": "cross-env NODE_ENV=development NODE_PATH=. node --inspect dist/index.js",
+    "lint": "tsc --noEmit && eslint ./src/**/*.{js,ts} --quiet --fix",
+    "lint:fix": "yarn eslint ./src/**/*.{js,ts} --fix",
+    "lint:report": "yarn eslint ./src/**/*.{js,ts} -f json -o eslint-report.json",
+    "format": "prettier --write \"**/*.+(ts|js|json|md)\"",
+    "reinstall": "rm -rf node_modules && yarn install --force"
+  },
+  "author": "Tudor Suhan",
+  "license": "ISC",
+  "dependencies": {
+    "@delimia/cloud": "0.0.19",
+    "cross-env": "^7.0.2",
+    "crud-node": "^1.1.3",
+    "dotenv-flow": "^3.1.0",
+    "express": "^4.17.1",
+    "http-errors": "^2.0.0",
+    "joi": "^17.4.0",
+    "module-alias": "^2.2.2"
+  },
+  "devDependencies": {
+    "@trivago/prettier-plugin-sort-imports": "^3.2.0",
+    "@types/dotenv-flow": "^3.1.0",
+    "@types/express": "^4.17.12",
+    "@types/http-errors": "^1.8.2",
+    "@types/node": "^15.6.1",
+    "@typescript-eslint/eslint-plugin": "4.26.0",
+    "@typescript-eslint/parser": "4.26.0",
+    "babel-eslint": "10.1.0",
+    "eslint": "7.28.0",
+    "eslint-config-prettier": "^8.3.0",
+    "eslint-plugin-babel": "^5.3.1",
+    "eslint-plugin-import": "^2.18.2",
+    "eslint-plugin-prettier": "^4.0.0",
+    "nodemon": "^2.0.1",
+    "prettier": "^2.5.1",
+    "shx": "^0.3.3",
+    "typescript": "^4.5.5"
+  },
+  "engines": {},
+  "browserslist": "> 0.25%, not dead",
+  "logConfiguration": {
+    "logDriver": "json-file",
+    "options": null
+  }
+}

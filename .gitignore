@@ -1,0 +1,10 @@
+.git/
+LICENSE
+.vscode
+.vs
+node_modules/
+.logs/
+app.log
+yarn-error.log
+dist/
+eslint-report.json

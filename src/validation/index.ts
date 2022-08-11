@@ -1,0 +1,1 @@
+export { deviceSchema } from './device';
