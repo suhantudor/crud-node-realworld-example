@@ -5,6 +5,8 @@ import { IAppWithControllers, withErrorHandler } from 'src/middlewares';
 import { appRouter } from 'src/routes';
 import { AppWithDatabase } from 'src/types';
 
+const log = console.log;
+
 /**
  * Routes for all the endpoints of the app
  * @param {express.Application} app
@@ -28,7 +30,7 @@ export const withApi = <T>(
   appWithApi.use(express.json());
   appWithApi.use(router);
 
-  withErrorHandler(app, global.logger, debug);
+  withErrorHandler(app, log as any, debug);
 
   return appWithApi;
 };

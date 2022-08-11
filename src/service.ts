@@ -1,3 +1,4 @@
+/* eslint-disable no-console */
 import * as express from 'express';
 
 import { withMySQL, withMySQLX } from 'crud-node';
@@ -10,16 +11,16 @@ import { appInfo, envGet, envGetRequired } from 'src/utils';
 export const startService = async (env: typeof process.env): Promise<void> => {
   try {
     process.on('uncaughtException', (err: Error) => {
-      global.logger.error(errors.uncaughtException(err));
+      console.error(errors.uncaughtException(err));
     });
     process.on('unhandledRejection', (err: Error, origin: any) => {
-      global.logger.error(errors.unhandledRejection(err, origin));
+      console.error(errors.unhandledRejection(err, origin));
     });
     process.on('beforeExit', code => {
-      global.logger.info(`Process will exit with code: ${code}`);
+      console.log(`Process will exit with code: ${code}`);
     });
     process.on('exit', code => {
-      global.logger.info(`Process exited with code: ${code}`);
+      console.log(`Process exited with code: ${code}`);
     });
 
     const appName = envGetRequired(env, 'APP_NAME');
@@ -39,9 +40,9 @@ export const startService = async (env: typeof process.env): Promise<void> => {
     const server = envGetRequired(env, 'SERVER');
     const serverPort = envGetRequired(env, 'SERVER_PORT');
     const nodeEnv = envGetRequired(env, 'NODE_ENV');
-    app.listen(serverPort, () => global.logger.info(appInfo(appName, server, serverPort, nodeEnv)));
+    app.listen(serverPort, () => console.log(appInfo(appName, server, serverPort, nodeEnv)));
   } catch (error) {
-    global.logger.error(errors.errorOnStart(error as Error));
+    console.error(errors.errorOnStart(error as Error));
     process.exit(1);
   }
 };
