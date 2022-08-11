@@ -8,7 +8,7 @@ export const mySqlXConnection: MySQLXConnectionConfig = {
   user: envGetRequired(process.env, 'MYSQLX_ROOT_USER'),
   password: envGetRequired(process.env, 'MYSQLX_ROOT_PASSWORD'),
   schema: envGetRequired(process.env, 'MYSQLX_DATABASE'),
-  timezone: envGet(process.env, 'MYSQLX_TZ'),
+  // timezone: envGet(process.env, 'MYSQLX_TZ'),
 };
 
 export const mySqlXPooling: MySQLXPoolingOptions = {
