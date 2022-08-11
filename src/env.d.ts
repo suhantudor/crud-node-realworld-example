@@ -5,11 +5,11 @@ declare namespace NodeJS {
     NODE_PATH: string;
     TZ?: string;
 
-    // SERVER SETTINGS
+    // Server Settings
     SERVER: string;
     SERVER_PORT: string;
 
-    // DATABASE CONFIGURATIONS
+    // MySQL
     MYSQL_DATABASE_HOST?: string;
     MYSQL_DATABASE_PORT?: string | number;
     MYSQL_DATABASE?: string;
@@ -21,6 +21,19 @@ declare namespace NodeJS {
     MYSQL_CI_COLLATION?: string;
     MYSQL_CHARSET?: string;
     MYSQL_TZ?: string;
+
+    // MySQLX
+    MYSQLX_DATABASE_HOST?: string;
+    MYSQLX_DATABASE_PORT?: string | number;
+    MYSQLX_DATABASE?: string;
+    MYSQLX_USER?: string;
+    MYSQLX_PASSWORD?: string;
+    MYSQLX_ROOT_USER?: string;
+    MYSQLX_ROOT_PASSWORD?: string;
+    MYSQLX_COLLATION?: string;
+    MYSQLX_CI_COLLATION?: string;
+    MYSQLX_CHARSET?: string;
+    MYSQLX_TZ?: string;
 
     // DEBUG
     DEBUG_API?: boolean; // Enables stack trace in api response

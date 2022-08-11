@@ -1,7 +1,9 @@
 import * as express from 'express';
 
+import { withMySQL, withMySQLX } from 'crud-node';
+
 import { ClientDatabase, errors, mySqlConnection, mySqlSettings } from 'src/config';
-import { IAppWithControllers, withApi, withControllers, withMySQL } from 'src/middlewares';
+import { IAppWithControllers, withApi, withControllers } from 'src/middlewares';
 import { AppWithDatabase } from 'src/types';
 import { appInfo, envGet, envGetRequired } from 'src/utils';
 

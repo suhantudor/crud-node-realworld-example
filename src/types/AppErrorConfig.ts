@@ -1,4 +1,4 @@
-export interface SystemErrorConfig {
+export interface AppErrorConfig {
   code: string;
   message: string;
 }

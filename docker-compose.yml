@@ -38,6 +38,39 @@ services:
     networks:
       - crudnode_local
 
+  mysqlx:
+    image: percona/percona-server:8.0.23
+    container_name: dbx
+    restart: on-failure
+    tty: true
+    stdin_open: true
+    environment:
+      MYSQL_DATABASE: ${MYSQLX_DATABASE}
+      MYSQL_USER: ${MYSQLX_USER}
+      MYSQL_PASSWORD: ${MYSQLX_PASSWORD}
+      MYSQL_ROOT_USER: ${MYSQLX_ROOT_USER}
+      MYSQL_ROOT_PASSWORD: ${MYSQLX_ROOT_PASSWORD}
+      MYSQL_MAX_ALLOWED_PACKET: 2018M
+      MYSQL_INNODB_BUFFER_POOL_SIZE: 1G
+      MYSQL_INNODB_LOG_FILE_SIZE: 256M
+      MYSQL_INNODB_LOG_BUFFER_SIZE: 256M
+    command: --character-set-server=${MYSQLX_CHARSET} --collation-server=${MYSQLX_COLLATION}
+    ports:
+      - '${MYSQLX_DATABASE_PORT}:${MYSQLX_DATABASE_PORT}'
+    expose:
+      - '${MYSQLX_DATABASE_PORT}'
+    volumes:
+      - dbx_local_data:/var/lib/mysql:rw
+      # bind mount my local my.cnf
+      # - $PWD/my.cnf:/etc/my.cnf.d/my.cnf
+    healthcheck:
+      test: '/usr/bin/mysql --user=${MYSQLX_ROOT_USER} --password=${MYSQLX_ROOT_PASSWORD} --execute "SHOW DATABASES;"'
+      interval: 15s
+      timeout: 5s
+      retries: 6
+    networks:
+      - selsof_local
+
   adminer:
     container_name: adminer
     image: adminer:4.8.1
