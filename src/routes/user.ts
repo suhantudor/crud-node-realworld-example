@@ -19,8 +19,7 @@ export const userRouter = (app: IAppWithControllers & IAppWithDatabase<ClientDat
    * /v1/device-manager/user
    */
   router.post(
-    '',
-    withJoi(userSchema.createUserParams, 'params', errors.errorOnRouteCreateUser),
+    '/',
     withJoi(userSchema.createUserBody, 'body', errors.errorOnRouteCreateUser),
     withCatchException(async req =>
       db.usingSession(async session => {

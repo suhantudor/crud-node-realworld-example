@@ -16,7 +16,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n\t\"userId\": \"\",\r\n\t\"buildId\": \"\",\r\n\t\"buildNumber\": \"\",\r\n\t\"brand\": \"\",\r\n\t\"deviceId\": \"\",\r\n\t\"device\": \"\",\r\n\t\"name\": \"\",\r\n\t\"ipAddress\": \"\",\r\n\t\"manufacturer\": \"\",\r\n\t\"platform\": \"\",\r\n\t\"model\": \"\",\r\n\t\"serial\": \"\",\r\n\t\"uniqueId\": \"\",\r\n\t\"isLogged\": \"\"\r\n}",
+							"raw": "{\r\n\t\"userId\": \"user_id123456789\",\r\n\t\"buildId\": \"13D15\",\r\n\t\"buildNumber\": \"89\",\r\n\t\"brand\": \"Samsung\",\r\n\t\"deviceId\": \"goldfish\",\r\n\t\"device\": \"walleye\",\r\n\t\"name\": \"Joe Shmoe's Samsung\",\r\n\t\"ipAddress\": \"92.168.32.44\",\r\n\t\"manufacturer\": \"Samsung\",\r\n\t\"platform\": \"Android\",\r\n\t\"model\": \"X10\",\r\n\t\"serial\": \"0398TF65SD531029\",\r\n\t\"uniqueId\": \"dd96dec43fb81c97\",\r\n\t\"isLogged\": true\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -52,7 +52,7 @@
 							"variable": [
 								{
 									"key": "deviceId",
-									"value": null
+									"value": "device_MO3TWHTfFygF_UnoDefn6"
 								}
 							]
 						}
@@ -66,7 +66,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n\t\"userId\": \"\",\r\n\t\"buildId\": \"\",\r\n\t\"buildNumber\": \"\",\r\n\t\"brand\": \"\",\r\n\t\"deviceId\": \"\",\r\n\t\"device\": \"\",\r\n\t\"name\": \"\",\r\n\t\"ipAddress\": \"\",\r\n\t\"manufacturer\": \"\",\r\n\t\"platform\": \"\",\r\n\t\"model\": \"\",\r\n\t\"serial\": \"\",\r\n\t\"uniqueId\": \"\",\r\n\t\"isLogged\": \"\"\r\n}",
+							"raw": "{\r\n\t\"userId\": \"user_dYg-xotNzDOHx2yqDVNSu\",\r\n\t\"buildId\": \"13D15\",\r\n\t\"buildNumber\": \"89\",\r\n\t\"brand\": \"Samsung\",\r\n\t\"deviceId\": \"goldfish\",\r\n\t\"device\": \"walleye\",\r\n\t\"name\": \"Joe Shmoe's Samsung\",\r\n\t\"ipAddress\": \"92.168.32.44\",\r\n\t\"manufacturer\": \"Samsung\",\r\n\t\"platform\": \"Android\",\r\n\t\"model\": \"X10\",\r\n\t\"serial\": \"0398TF65SD531029\",\r\n\t\"uniqueId\": \"dd96dec43fb81c97\",\r\n\t\"isLogged\": true\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -85,7 +85,7 @@
 							"variable": [
 								{
 									"key": "deviceId",
-									"value": null
+									"value": "device_MO3TWHTfFygF_UnoDefn6"
 								}
 							]
 						}
@@ -109,7 +109,7 @@
 							"variable": [
 								{
 									"key": "deviceId",
-									"value": null
+									"value": "device_MO3TWHTfFygF_UnoDefn6"
 								}
 							]
 						}
@@ -146,7 +146,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n\t\"userId\": \"\",\r\n\t\"buildId\": \"\",\r\n\t\"buildNumber\": \"\",\r\n\t\"brand\": \"\",\r\n\t\"deviceId\": \"\",\r\n\t\"device\": \"\",\r\n\t\"name\": \"\",\r\n\t\"ipAddress\": \"\",\r\n\t\"manufacturer\": \"\",\r\n\t\"platform\": \"\",\r\n\t\"model\": \"\",\r\n\t\"serial\": \"\",\r\n\t\"uniqueId\": \"\",\r\n\t\"isLogged\": \"\"\r\n}",
+							"raw": "{\r\n  \"firstName\": \"Joe\",\r\n  \"lastName\": \"Shmoe\",\r\n  \"phoneNumber\": \"987211212\",\r\n  \"email\": \"oeshmoe@gmail.com\",\r\n  \"password\": \"qwerty\",\r\n  \"gender\": \"Male\",\r\n  \"age\": \"24\",\r\n  \"dateOfBirth\": \"18 Jan 1989\",\r\n  \"nationality\": \"Unknown\",\r\n  \"color\": \"White\",\r\n  \"maritalStatus\": \"Married\",\r\n  \"avatar\": \"avatar_id\",\r\n  \"notification\": \"notification_id\",\r\n  \"language\": \"English\",\r\n  \"theme\": \"Black\",\r\n  \"isDeleted\": false,\r\n  \"isSuspended\": false\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -182,7 +182,7 @@
 							"variable": [
 								{
 									"key": "userId",
-									"value": null
+									"value": "user_dYg-xotNzDOHx2yqDVNSu"
 								}
 							]
 						}
@@ -196,7 +196,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n\t\"userId\": \"\",\r\n\t\"buildId\": \"\",\r\n\t\"buildNumber\": \"\",\r\n\t\"brand\": \"\",\r\n\t\"deviceId\": \"\",\r\n\t\"device\": \"\",\r\n\t\"name\": \"\",\r\n\t\"ipAddress\": \"\",\r\n\t\"manufacturer\": \"\",\r\n\t\"platform\": \"\",\r\n\t\"model\": \"\",\r\n\t\"serial\": \"\",\r\n\t\"uniqueId\": \"\",\r\n\t\"isLogged\": \"\"\r\n}",
+							"raw": "{\r\n  \"firstName\": \"Joe\",\r\n  \"lastName\": \"Shmoe\",\r\n  \"phoneNumber\": \"987211212\",\r\n  \"email\": \"oeshmoe@gmail.com\",\r\n  \"password\": \"qwerty\",\r\n  \"gender\": \"Male\",\r\n  \"age\": \"24\",\r\n  \"dateOfBirth\": \"18 Jan 1989\",\r\n  \"nationality\": \"Unknown\",\r\n  \"color\": \"White\",\r\n  \"maritalStatus\": \"Married\",\r\n  \"avatar\": \"avatar_id\",\r\n  \"notification\": \"notification_id\",\r\n  \"language\": \"English\",\r\n  \"theme\": \"Black\",\r\n  \"isDeleted\": false,\r\n  \"isSuspended\": false\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -215,7 +215,7 @@
 							"variable": [
 								{
 									"key": "userId",
-									"value": null
+									"value": "user_dYg-xotNzDOHx2yqDVNSu"
 								}
 							]
 						}
@@ -239,7 +239,7 @@
 							"variable": [
 								{
 									"key": "userId",
-									"value": null
+									"value": "user_dYg-xotNzDOHx2yqDVNSu"
 								}
 							]
 						}

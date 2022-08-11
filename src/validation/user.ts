@@ -1,8 +1,7 @@
 import * as Joi from 'joi';
 
 export const userSchema = {
-  createUserParams: Joi.object({}),
-  createUserBody: Joi.object({}),
+  createUserBody: Joi.object(),
   getUser: Joi.object({
     userId: Joi.string(),
   }),

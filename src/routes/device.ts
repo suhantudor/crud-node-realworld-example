@@ -19,7 +19,7 @@ export const deviceRouter = (app: IAppWithControllers & IAppWithDatabase<ClientD
    * /v1/device-manager/device
    */
   router.post(
-    '',
+    '/',
     withJoi(deviceSchema.createDeviceParams, 'params', errors.errorOnRouteCreateDevice),
     withJoi(deviceSchema.createDeviceBody, 'body', errors.errorOnRouteCreateDevice),
     withCatchException(async req =>
