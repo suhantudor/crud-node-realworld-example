@@ -30,7 +30,6 @@
   "author": "Tudor Suhan",
   "license": "ISC",
   "dependencies": {
-    "@delimia/cloud": "0.0.19",
     "cross-env": "^7.0.2",
     "crud-node": "^1.1.3",
     "dotenv-flow": "^3.1.0",

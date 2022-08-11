@@ -7,6 +7,7 @@ services:
     restart: on-failure
     tty: true
     stdin_open: true
+    env_file: .env
     environment:
       MYSQL_DATABASE: ${MYSQL_DATABASE}
       MYSQL_USER: ${MYSQL_USER}
@@ -44,10 +45,9 @@ services:
     restart: on-failure
     tty: true
     stdin_open: true
+    env_file: .env
     environment:
       MYSQL_DATABASE: ${MYSQLX_DATABASE}
-      MYSQL_USER: ${MYSQLX_USER}
-      MYSQL_PASSWORD: ${MYSQLX_PASSWORD}
       MYSQL_ROOT_USER: ${MYSQLX_ROOT_USER}
       MYSQL_ROOT_PASSWORD: ${MYSQLX_ROOT_PASSWORD}
       MYSQL_MAX_ALLOWED_PACKET: 2018M
@@ -60,7 +60,7 @@ services:
     expose:
       - '${MYSQLX_DATABASE_PORT}'
     volumes:
-      - dbx_local_data:/var/lib/mysql:rw
+      - mysqlx_data:/var/lib/mysql:rw
       # bind mount my local my.cnf
       # - $PWD/my.cnf:/etc/my.cnf.d/my.cnf
     healthcheck:
@@ -93,6 +93,9 @@ services:
 volumes:
   mysql_data:
     name: mysql_data
+    driver: local
+  mysqlx_data:
+    name: mysqlx_data
     driver: local
 
 networks:
