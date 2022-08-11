@@ -1,0 +1,270 @@
+{
+	"info": {
+		"_postman_id": "af0a514a-52bd-437c-8dc8-3ebbad495c43",
+		"name": "crud-node",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "2366201"
+	},
+	"item": [
+		{
+			"name": "device",
+			"item": [
+				{
+					"name": "create device",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n\t\"userId\": \"\",\r\n\t\"buildId\": \"\",\r\n\t\"buildNumber\": \"\",\r\n\t\"brand\": \"\",\r\n\t\"deviceId\": \"\",\r\n\t\"device\": \"\",\r\n\t\"name\": \"\",\r\n\t\"ipAddress\": \"\",\r\n\t\"manufacturer\": \"\",\r\n\t\"platform\": \"\",\r\n\t\"model\": \"\",\r\n\t\"serial\": \"\",\r\n\t\"uniqueId\": \"\",\r\n\t\"isLogged\": \"\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{device-manager}}/device",
+							"host": [
+								"{{device-manager}}"
+							],
+							"path": [
+								"device"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete device",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{device-manager}}/device/:deviceId",
+							"host": [
+								"{{device-manager}}"
+							],
+							"path": [
+								"device",
+								":deviceId"
+							],
+							"variable": [
+								{
+									"key": "deviceId",
+									"value": null
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update device",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n\t\"userId\": \"\",\r\n\t\"buildId\": \"\",\r\n\t\"buildNumber\": \"\",\r\n\t\"brand\": \"\",\r\n\t\"deviceId\": \"\",\r\n\t\"device\": \"\",\r\n\t\"name\": \"\",\r\n\t\"ipAddress\": \"\",\r\n\t\"manufacturer\": \"\",\r\n\t\"platform\": \"\",\r\n\t\"model\": \"\",\r\n\t\"serial\": \"\",\r\n\t\"uniqueId\": \"\",\r\n\t\"isLogged\": \"\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{device-manager}}/device/:deviceId",
+							"host": [
+								"{{device-manager}}"
+							],
+							"path": [
+								"device",
+								":deviceId"
+							],
+							"variable": [
+								{
+									"key": "deviceId",
+									"value": null
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "retrieve device",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{device-manager}}/device/:deviceId",
+							"host": [
+								"{{device-manager}}"
+							],
+							"path": [
+								"device",
+								":deviceId"
+							],
+							"variable": [
+								{
+									"key": "deviceId",
+									"value": null
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "list devices",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{device-manager}}/device/list",
+							"host": [
+								"{{device-manager}}"
+							],
+							"path": [
+								"device",
+								"list"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "user",
+			"item": [
+				{
+					"name": "create user",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n\t\"userId\": \"\",\r\n\t\"buildId\": \"\",\r\n\t\"buildNumber\": \"\",\r\n\t\"brand\": \"\",\r\n\t\"deviceId\": \"\",\r\n\t\"device\": \"\",\r\n\t\"name\": \"\",\r\n\t\"ipAddress\": \"\",\r\n\t\"manufacturer\": \"\",\r\n\t\"platform\": \"\",\r\n\t\"model\": \"\",\r\n\t\"serial\": \"\",\r\n\t\"uniqueId\": \"\",\r\n\t\"isLogged\": \"\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{device-manager}}/user",
+							"host": [
+								"{{device-manager}}"
+							],
+							"path": [
+								"user"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete user",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{device-manager}}/user/:userId",
+							"host": [
+								"{{device-manager}}"
+							],
+							"path": [
+								"user",
+								":userId"
+							],
+							"variable": [
+								{
+									"key": "userId",
+									"value": null
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update user",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n\t\"userId\": \"\",\r\n\t\"buildId\": \"\",\r\n\t\"buildNumber\": \"\",\r\n\t\"brand\": \"\",\r\n\t\"deviceId\": \"\",\r\n\t\"device\": \"\",\r\n\t\"name\": \"\",\r\n\t\"ipAddress\": \"\",\r\n\t\"manufacturer\": \"\",\r\n\t\"platform\": \"\",\r\n\t\"model\": \"\",\r\n\t\"serial\": \"\",\r\n\t\"uniqueId\": \"\",\r\n\t\"isLogged\": \"\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{device-manager}}/user/:userId",
+							"host": [
+								"{{device-manager}}"
+							],
+							"path": [
+								"user",
+								":userId"
+							],
+							"variable": [
+								{
+									"key": "userId",
+									"value": null
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "retrieve user",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{device-manager}}/user/:userId",
+							"host": [
+								"{{device-manager}}"
+							],
+							"path": [
+								"user",
+								":userId"
+							],
+							"variable": [
+								{
+									"key": "userId",
+									"value": null
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "list users",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{device-manager}}/user/list",
+							"host": [
+								"{{device-manager}}"
+							],
+							"path": [
+								"user",
+								"list"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}

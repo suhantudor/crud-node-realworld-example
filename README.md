@@ -6,6 +6,8 @@
 
 ## 👀 Benefits
 
+Benefits of using _crud-node_ package.
+
 - concise syntax
 - reduce boilerplate
 - spead up implementation
