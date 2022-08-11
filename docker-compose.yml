@@ -41,7 +41,7 @@ services:
 
   mysqlx:
     image: percona/percona-server:8.0.23
-    container_name: dbx
+    container_name: mysqlx
     restart: on-failure
     tty: true
     stdin_open: true
