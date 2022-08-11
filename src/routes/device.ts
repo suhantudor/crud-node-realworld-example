@@ -14,10 +14,10 @@ export const deviceRouter = (app: IAppWithControllers & AppWithDatabase<ClientDa
 
   /**
    * Create device
-   * /v1/device-manager
+   * /v1/device-manager/device
    */
   router.post(
-    '/',
+    '/device',
     withJoi(deviceSchema.createDeviceParams, 'params', errors.errorOnRouteCreateDevice),
     withJoi(deviceSchema.createDeviceBody, 'body', errors.errorOnRouteCreateDevice),
     withCatchException(async req =>
@@ -31,10 +31,10 @@ export const deviceRouter = (app: IAppWithControllers & AppWithDatabase<ClientDa
 
   /**
    * List devices
-   * /v1/device-manager/list
+   * /v1/device-manager/device/list
    */
   router.get(
-    '/list',
+    '/device/list',
     withJoi(deviceSchema.getDevices, 'params', errors.errorOnRouteGetDevices),
     withCatchException(async () =>
       db.usingSession(async session => {
@@ -46,10 +46,10 @@ export const deviceRouter = (app: IAppWithControllers & AppWithDatabase<ClientDa
 
   /**
    * Retrive device
-   * /v1/device-manager/:deviceId
+   * /v1/device-manager/device/:deviceId
    */
   router.get(
-    '/:deviceId',
+    '/device/:deviceId',
     withJoi(deviceSchema.getDevice, 'params', errors.errorOnRouteGetDevice),
     withCatchException(async req =>
       db.usingSession(async session => {
@@ -64,10 +64,10 @@ export const deviceRouter = (app: IAppWithControllers & AppWithDatabase<ClientDa
 
   /**
    * Update device
-   * /v1/device-manager/:deviceId
+   * /v1/device-manager/device/:deviceId
    */
   router.put(
-    '/:deviceId',
+    '/device/:deviceId',
     withJoi(deviceSchema.updateDeviceParams, 'params', errors.errorOnRouteUpdateDevice),
     withJoi(deviceSchema.updateDeviceBody, 'body', errors.errorOnRouteUpdateDevice),
     withCatchException(async req =>
@@ -84,10 +84,10 @@ export const deviceRouter = (app: IAppWithControllers & AppWithDatabase<ClientDa
 
   /**
    * Delete device
-   * /v1/device-manager/:deviceId
+   * /v1/device-manager/device/:deviceId
    */
   router.delete(
-    '/:deviceId',
+    '/device/:deviceId',
     withJoi(deviceSchema.deleteDevice, 'params', errors.errorOnRouteDeleteDevice),
     withCatchException(async req =>
       db.usingSession(async session => {

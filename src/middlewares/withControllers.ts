@@ -1,15 +1,12 @@
 import * as express from 'express';
 
-import { CRUDMySQL } from 'crud-node';
-
 import { ClientDatabase } from 'src/config';
-import { DeviceController } from 'src/controllers';
-import { UserProps, userSchema } from 'src/db';
+import { DeviceController, UserController } from 'src/controllers';
 import { AppWithDatabase } from 'src/types';
 
 export interface IAppWithControllers extends express.Application {
   controllers: {
-    userController: CRUDMySQL<UserProps>;
+    userController: UserController;
     deviceController: DeviceController;
   };
   initControllers: () => Promise<void>;
@@ -23,7 +20,7 @@ export interface IAppWithControllers extends express.Application {
 export const withControllers = <T>(
   app: express.Application & AppWithDatabase<ClientDatabase> & T,
 ): AppWithDatabase<ClientDatabase> & T & IAppWithControllers => {
-  const userController = new CRUDMySQL<UserProps>(app.db, userSchema);
+  const userController = new UserController(app);
   const deviceController = new DeviceController(app);
 
   const controllers = [userController, deviceController];

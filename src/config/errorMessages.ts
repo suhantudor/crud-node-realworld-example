@@ -17,9 +17,22 @@ export const errors = {
   errorOnRouteDeleteDevice: (error: Error): AppErrorConfig =>
     AppError.makeError('ESEDM006', `Invalid route: ${errorToString(error)}`),
 
-  errorOnAddDevice: (): AppErrorConfig => AppError.makeError('ESEDM012', 'The device already exists'),
+  errorOnRouteCreateUser: (error: Error): AppErrorConfig =>
+    AppError.makeError('ESEDM007', `Invalid route: ${errorToString(error)}`),
+  errorOnRouteGetUser: (error: Error): AppErrorConfig =>
+    AppError.makeError('ESEDM008', `Invalid route: ${errorToString(error)}`),
+  errorOnRouteGetUsers: (error: Error): AppErrorConfig =>
+    AppError.makeError('ESEDM009', `Invalid route: ${errorToString(error)}`),
+  errorOnRouteUpdateUser: (error: Error): AppErrorConfig =>
+    AppError.makeError('ESEDM010', `Invalid route: ${errorToString(error)}`),
+  errorOnRouteDeleteUser: (error: Error): AppErrorConfig =>
+    AppError.makeError('ESEDM011', `Invalid route: ${errorToString(error)}`),
+  errorOnRouteGetUserDevices: (error: Error): AppErrorConfig =>
+    AppError.makeError('ESEDM012', `Invalid route: ${errorToString(error)}`),
 
-  uncaughtException: (error: Error): AppErrorConfig => AppError.makeError('ESEDM013', `'Uncaught Exception ${error}`),
+  errorOnAddDevice: (): AppErrorConfig => AppError.makeError('ESEDM013', 'The device already exists'),
+
+  uncaughtException: (error: Error): AppErrorConfig => AppError.makeError('ESEDM014', `'Uncaught Exception ${error}`),
   unhandledRejection: (error: Error, origin: any): AppErrorConfig =>
-    AppError.makeError('ESEDM014', `'Unhandled Rejection at:${origin} reason: ${error}`),
+    AppError.makeError('ESEDM015', `'Unhandled Rejection at:${origin} reason: ${error}`),
 };
