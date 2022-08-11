@@ -1,14 +1,12 @@
-import { CRUDMySQL } from 'crud-node';
+import { IAppWithDatabase } from 'crud-node';
 
-import { ClientDatabase } from 'src/config';
-import { DeviceProps, deviceSchema } from 'src/db';
-import { AppWithDatabase } from 'src/types';
+import { CRUDController, ClientDatabase, DeviceProps, deviceSchema } from 'src/db';
 
 /**
  * DeviceController
  */
-export class DeviceController extends CRUDMySQL<DeviceProps> {
-  constructor(app: AppWithDatabase<ClientDatabase>) {
+export class DeviceController extends CRUDController<DeviceProps> {
+  constructor(app: IAppWithDatabase<ClientDatabase>) {
     super(app.db, deviceSchema);
   }
 }

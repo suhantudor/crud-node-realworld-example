@@ -1,11 +1,10 @@
 import * as express from 'express';
 
-import { ClientDatabase } from 'src/config';
+import { IAppWithDatabase } from 'crud-node';
+
+import { ClientDatabase } from 'src/db';
 import { IAppWithControllers, withErrorHandler } from 'src/middlewares';
 import { appRouter } from 'src/routes';
-import { AppWithDatabase } from 'src/types';
-
-const log = console.log;
 
 /**
  * Routes for all the endpoints of the app
@@ -14,10 +13,10 @@ const log = console.log;
  * @returns {IAppWithApi} app
  */
 export const withApi = <T>(
-  app: express.Application & IAppWithControllers & AppWithDatabase<ClientDatabase> & T,
+  app: express.Application & IAppWithControllers & IAppWithDatabase<ClientDatabase> & T,
   debug: boolean,
-): express.Application & IAppWithControllers & AppWithDatabase<ClientDatabase> & T => {
-  const appWithApi = app as unknown as IAppWithControllers & AppWithDatabase<ClientDatabase> & T;
+): express.Application & IAppWithControllers & IAppWithDatabase<ClientDatabase> & T => {
+  const appWithApi = app as unknown as IAppWithControllers & IAppWithDatabase<ClientDatabase> & T;
 
   const router = appRouter(appWithApi);
 
@@ -30,7 +29,7 @@ export const withApi = <T>(
   appWithApi.use(express.json());
   appWithApi.use(router);
 
-  withErrorHandler(app, log as any, debug);
+  withErrorHandler(app, console, debug);
 
   return appWithApi;
 };

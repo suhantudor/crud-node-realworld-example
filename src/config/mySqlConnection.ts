@@ -1,4 +1,4 @@
-import { MySQL, MySQLConnectionConfig, MySQLSession } from 'crud-node';
+import { MySQLConnectionConfig } from 'crud-node';
 
 import { envGet } from 'src/utils';
 
@@ -15,6 +15,3 @@ export const mySqlConnection: MySQLConnectionConfig = {
 export const mySqlSettings = {
   ciCollation: String(envGet(process.env, 'MYSQL_CI_COLLATION')),
 };
-
-export type ClientDatabase = MySQL;
-export type ClientDatabaseSession = MySQLSession;

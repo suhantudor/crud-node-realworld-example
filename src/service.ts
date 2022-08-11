@@ -1,11 +1,11 @@
 /* eslint-disable no-console */
 import * as express from 'express';
 
-import { withMySQL, withMySQLX } from 'crud-node';
+import { IAppWithDatabase } from 'crud-node';
 
-import { ClientDatabase, errors, mySqlConnection, mySqlSettings } from 'src/config';
-import { IAppWithControllers, withApi, withControllers } from 'src/middlewares';
-import { AppWithDatabase } from 'src/types';
+import { errors } from 'src/config';
+import { ClientDatabase, getInstance } from 'src/db';
+import { IAppWithControllers, withApi, withControllers, withDatabase } from 'src/middlewares';
 import { appInfo, envGet, envGetRequired } from 'src/utils';
 
 export const startService = async (env: typeof process.env): Promise<void> => {
@@ -25,9 +25,10 @@ export const startService = async (env: typeof process.env): Promise<void> => {
 
     const appName = envGetRequired(env, 'APP_NAME');
     const debug = envGet(process.env, 'DEBUG_API') === 'true';
+    const db = getInstance();
 
-    const app = withApi<AppWithDatabase<ClientDatabase> & IAppWithControllers>(
-      withControllers<AppWithDatabase<ClientDatabase>>(withMySQL(null, mySqlConnection, mySqlSettings)),
+    const app = withApi<IAppWithDatabase<ClientDatabase> & IAppWithControllers>(
+      withControllers<IAppWithDatabase<ClientDatabase>>(withDatabase(express(), db)),
       debug,
     );
 

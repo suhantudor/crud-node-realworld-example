@@ -1,11 +1,13 @@
 import * as express from 'express';
 
-import { ClientDatabase, errors } from 'src/config';
+import { IAppWithDatabase } from 'crud-node';
+
+import { errors } from 'src/config';
+import { ClientDatabase } from 'src/db';
 import { IAppWithControllers, withCatchException, withJoi } from 'src/middlewares';
-import { AppWithDatabase } from 'src/types';
 import { deviceSchema } from 'src/validation';
 
-export const deviceRouter = (app: IAppWithControllers & AppWithDatabase<ClientDatabase>): express.Router => {
+export const deviceRouter = (app: IAppWithControllers & IAppWithDatabase<ClientDatabase>): express.Router => {
   const router = express.Router();
   const {
     controllers: { deviceController },
@@ -17,7 +19,7 @@ export const deviceRouter = (app: IAppWithControllers & AppWithDatabase<ClientDa
    * /v1/device-manager/device
    */
   router.post(
-    '/device',
+    '',
     withJoi(deviceSchema.createDeviceParams, 'params', errors.errorOnRouteCreateDevice),
     withJoi(deviceSchema.createDeviceBody, 'body', errors.errorOnRouteCreateDevice),
     withCatchException(async req =>
@@ -34,7 +36,7 @@ export const deviceRouter = (app: IAppWithControllers & AppWithDatabase<ClientDa
    * /v1/device-manager/device/list
    */
   router.get(
-    '/device/list',
+    '/list',
     withJoi(deviceSchema.getDevices, 'params', errors.errorOnRouteGetDevices),
     withCatchException(async () =>
       db.usingSession(async session => {
@@ -49,7 +51,7 @@ export const deviceRouter = (app: IAppWithControllers & AppWithDatabase<ClientDa
    * /v1/device-manager/device/:deviceId
    */
   router.get(
-    '/device/:deviceId',
+    '/:deviceId',
     withJoi(deviceSchema.getDevice, 'params', errors.errorOnRouteGetDevice),
     withCatchException(async req =>
       db.usingSession(async session => {
@@ -67,7 +69,7 @@ export const deviceRouter = (app: IAppWithControllers & AppWithDatabase<ClientDa
    * /v1/device-manager/device/:deviceId
    */
   router.put(
-    '/device/:deviceId',
+    '/:deviceId',
     withJoi(deviceSchema.updateDeviceParams, 'params', errors.errorOnRouteUpdateDevice),
     withJoi(deviceSchema.updateDeviceBody, 'body', errors.errorOnRouteUpdateDevice),
     withCatchException(async req =>
@@ -87,7 +89,7 @@ export const deviceRouter = (app: IAppWithControllers & AppWithDatabase<ClientDa
    * /v1/device-manager/device/:deviceId
    */
   router.delete(
-    '/device/:deviceId',
+    '/:deviceId',
     withJoi(deviceSchema.deleteDevice, 'params', errors.errorOnRouteDeleteDevice),
     withCatchException(async req =>
       db.usingSession(async session => {

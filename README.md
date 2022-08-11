@@ -33,10 +33,18 @@ After _Prerequisites_ step is complete follow the next steps.
 yarn install
 ```
 
-2. Start containers:
+2. Start containers all:
 
 ```js
-docker-compose up
+docker-compose up -d
+```
+Start containers MySQL container:
+```js
+docker-compose up -d mysql
+```
+Start containers MySQLX container:
+```js
+docker-compose up -d mysqlx
 ```
 
 3. Restore database backup

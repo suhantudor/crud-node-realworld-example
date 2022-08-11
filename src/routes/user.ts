@@ -1,11 +1,13 @@
 import * as express from 'express';
 
-import { ClientDatabase, errors } from 'src/config';
+import { IAppWithDatabase } from 'crud-node';
+
+import { errors } from 'src/config';
+import { ClientDatabase } from 'src/db';
 import { IAppWithControllers, withCatchException, withJoi } from 'src/middlewares';
-import { AppWithDatabase } from 'src/types';
 import { userSchema } from 'src/validation';
 
-export const deviceRouter = (app: IAppWithControllers & AppWithDatabase<ClientDatabase>): express.Router => {
+export const userRouter = (app: IAppWithControllers & IAppWithDatabase<ClientDatabase>): express.Router => {
   const router = express.Router();
   const {
     controllers: { deviceController, userController },
@@ -17,7 +19,7 @@ export const deviceRouter = (app: IAppWithControllers & AppWithDatabase<ClientDa
    * /v1/device-manager/user
    */
   router.post(
-    '/user',
+    '',
     withJoi(userSchema.createUserParams, 'params', errors.errorOnRouteCreateUser),
     withJoi(userSchema.createUserBody, 'body', errors.errorOnRouteCreateUser),
     withCatchException(async req =>
@@ -34,7 +36,7 @@ export const deviceRouter = (app: IAppWithControllers & AppWithDatabase<ClientDa
    * /v1/device-manager/user/list
    */
   router.get(
-    '/user/list',
+    '/list',
     withJoi(userSchema.getUsers, 'params', errors.errorOnRouteGetUsers),
     withCatchException(async () =>
       db.usingSession(async session => {
@@ -49,7 +51,7 @@ export const deviceRouter = (app: IAppWithControllers & AppWithDatabase<ClientDa
    * /v1/device-manager/user/:userId
    */
   router.get(
-    '/user/:userId',
+    '/:userId',
     withJoi(userSchema.getUser, 'params', errors.errorOnRouteGetUser),
     withCatchException(async req =>
       db.usingSession(async session => {
@@ -67,7 +69,7 @@ export const deviceRouter = (app: IAppWithControllers & AppWithDatabase<ClientDa
    * /v1/device-manager/user/:userId
    */
   router.put(
-    '/user/:userId',
+    '/:userId',
     withJoi(userSchema.updateUserParams, 'params', errors.errorOnRouteUpdateUser),
     withJoi(userSchema.updateUserBody, 'body', errors.errorOnRouteUpdateUser),
     withCatchException(async req =>
@@ -87,7 +89,7 @@ export const deviceRouter = (app: IAppWithControllers & AppWithDatabase<ClientDa
    * /v1/device-manager/:userId
    */
   router.delete(
-    '/user/:userId',
+    '/:userId',
     withJoi(userSchema.deleteUser, 'params', errors.errorOnRouteDeleteUser),
     withCatchException(async req =>
       db.usingSession(async session => {
@@ -107,7 +109,7 @@ export const deviceRouter = (app: IAppWithControllers & AppWithDatabase<ClientDa
    * /v1/device-manager/user/:userId
    */
   // router.delete(
-  //   '/user/:userId/list',
+  //   '/:userId/list',
   //   withJoi(userSchema.getUserDevices, 'params', errors.errorOnRouteGetUserDevices),
   //   withCatchException(async req =>
   //     db.usingSession(async session => {

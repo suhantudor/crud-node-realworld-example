@@ -1,8 +1,9 @@
 import * as express from 'express';
 
-import { ClientDatabase } from 'src/config';
+import { IAppWithDatabase } from 'crud-node';
+
 import { DeviceController, UserController } from 'src/controllers';
-import { AppWithDatabase } from 'src/types';
+import { ClientDatabase } from 'src/db';
 
 export interface IAppWithControllers extends express.Application {
   controllers: {
@@ -18,14 +19,14 @@ export interface IAppWithControllers extends express.Application {
  * @returns {IAppWithControllers} app
  */
 export const withControllers = <T>(
-  app: express.Application & AppWithDatabase<ClientDatabase> & T,
-): AppWithDatabase<ClientDatabase> & T & IAppWithControllers => {
+  app: express.Application & IAppWithDatabase<ClientDatabase> & T,
+): IAppWithDatabase<ClientDatabase> & T & IAppWithControllers => {
   const userController = new UserController(app);
   const deviceController = new DeviceController(app);
 
   const controllers = [userController, deviceController];
 
-  const appWithControllers = app as unknown as AppWithDatabase<ClientDatabase> & T & IAppWithControllers;
+  const appWithControllers = app as unknown as IAppWithDatabase<ClientDatabase> & T & IAppWithControllers;
 
   appWithControllers.controllers = {
     userController,

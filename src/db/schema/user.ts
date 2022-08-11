@@ -1,6 +1,4 @@
-import { generateId } from 'crud-node';
-
-import { IDocument, IDocumentSchema, IDocumentValidation, getDocument } from '../../types';
+import { IDocument, IDocumentSchema, IDocumentValidation, generateId, getDocument } from 'crud-node';
 
 export enum UserProps {
   _id = '_id',
