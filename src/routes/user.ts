@@ -3,7 +3,7 @@ import * as express from 'express';
 import { IAppWithDatabase } from 'crud-node';
 
 import { errors } from 'src/config';
-import { ClientDatabase } from 'src/db';
+import { ClientDatabase, UserProps } from 'src/db';
 import { IAppWithControllers, withCatchException, withJoi } from 'src/middlewares';
 import { userSchema } from 'src/validation';
 
@@ -85,7 +85,7 @@ export const userRouter = (app: IAppWithControllers & IAppWithDatabase<ClientDat
 
   /**
    * Delete user
-   * /v1/device-manager/:userId
+   * /v1/device-manager/user/:userId
    */
   router.delete(
     '/:userId',
@@ -96,6 +96,23 @@ export const userRouter = (app: IAppWithControllers & IAppWithDatabase<ClientDat
           params: { userId },
         } = req;
         const data = await userController.deleteDocument(session, userId);
+        return data;
+      }, true),
+    ),
+  );
+
+  /**
+   * Count suspended users
+   * /v1/device-manager/user/suspended/count
+   */
+  router.get(
+    '/suspended/count',
+    withJoi(userSchema.countSuspenedUsers, 'params', errors.errorOnRouteCountSuspendedUsers),
+    withCatchException(async () =>
+      db.usingSession(async session => {
+        const data = await userController.getCount(session, {
+          [UserProps.isSuspended]: true,
+        });
         return data;
       }, true),
     ),

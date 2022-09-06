@@ -21,4 +21,5 @@ export const deviceSchema = {
     deviceId: Joi.string(),
     userId: Joi.string(),
   }),
+  countLoggedDevices: Joi.object(),
 };

@@ -16,4 +16,5 @@ export const userSchema = {
   getUserDevices: Joi.object({
     userId: Joi.string(),
   }),
+  countSuspenedUsers: Joi.object(),
 };

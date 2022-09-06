@@ -16,23 +16,27 @@ export const errors = {
     AppError.makeError('ESEDM005', `Invalid route: ${errorToString(error)}`),
   errorOnRouteDeleteDevice: (error: Error): AppErrorConfig =>
     AppError.makeError('ESEDM006', `Invalid route: ${errorToString(error)}`),
+  errorOnRouteCountLoggedDevices: (error: Error): AppErrorConfig =>
+    AppError.makeError('ESEDM007', `Invalid route: ${errorToString(error)}`),
 
   errorOnRouteCreateUser: (error: Error): AppErrorConfig =>
-    AppError.makeError('ESEDM007', `Invalid route: ${errorToString(error)}`),
-  errorOnRouteGetUser: (error: Error): AppErrorConfig =>
     AppError.makeError('ESEDM008', `Invalid route: ${errorToString(error)}`),
-  errorOnRouteGetUsers: (error: Error): AppErrorConfig =>
+  errorOnRouteGetUser: (error: Error): AppErrorConfig =>
     AppError.makeError('ESEDM009', `Invalid route: ${errorToString(error)}`),
-  errorOnRouteUpdateUser: (error: Error): AppErrorConfig =>
+  errorOnRouteGetUsers: (error: Error): AppErrorConfig =>
     AppError.makeError('ESEDM010', `Invalid route: ${errorToString(error)}`),
-  errorOnRouteDeleteUser: (error: Error): AppErrorConfig =>
+  errorOnRouteUpdateUser: (error: Error): AppErrorConfig =>
     AppError.makeError('ESEDM011', `Invalid route: ${errorToString(error)}`),
-  errorOnRouteGetUserDevices: (error: Error): AppErrorConfig =>
+  errorOnRouteDeleteUser: (error: Error): AppErrorConfig =>
     AppError.makeError('ESEDM012', `Invalid route: ${errorToString(error)}`),
+  errorOnRouteGetUserDevices: (error: Error): AppErrorConfig =>
+    AppError.makeError('ESEDM013', `Invalid route: ${errorToString(error)}`),
+  errorOnRouteCountSuspendedUsers: (error: Error): AppErrorConfig =>
+    AppError.makeError('ESEDM014', `Invalid route: ${errorToString(error)}`),
 
-  errorOnAddDevice: (): AppErrorConfig => AppError.makeError('ESEDM013', 'The device already exists'),
+  errorOnAddDevice: (): AppErrorConfig => AppError.makeError('ESEDM015', 'The device already exists'),
 
-  uncaughtException: (error: Error): AppErrorConfig => AppError.makeError('ESEDM014', `'Uncaught Exception ${error}`),
+  uncaughtException: (error: Error): AppErrorConfig => AppError.makeError('ESEDM016', `'Uncaught Exception ${error}`),
   unhandledRejection: (error: Error, origin: any): AppErrorConfig =>
-    AppError.makeError('ESEDM015', `'Unhandled Rejection at:${origin} reason: ${error}`),
+    AppError.makeError('ESEDM017', `'Unhandled Rejection at:${origin} reason: ${error}`),
 };

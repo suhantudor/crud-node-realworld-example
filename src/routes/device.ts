@@ -3,7 +3,7 @@ import * as express from 'express';
 import { IAppWithDatabase } from 'crud-node';
 
 import { errors } from 'src/config';
-import { ClientDatabase } from 'src/db';
+import { ClientDatabase, DeviceProps } from 'src/db';
 import { IAppWithControllers, withCatchException, withJoi } from 'src/middlewares';
 import { deviceSchema } from 'src/validation';
 
@@ -97,6 +97,23 @@ export const deviceRouter = (app: IAppWithControllers & IAppWithDatabase<ClientD
           params: { deviceId },
         } = req;
         const data = await deviceController.deleteDocument(session, deviceId);
+        return data;
+      }, true),
+    ),
+  );
+
+  /**
+   * Count logged devices
+   * /v1/device-manager/device/logged/count
+   */
+  router.get(
+    '/logged/count',
+    withJoi(deviceSchema.countLoggedDevices, 'params', errors.errorOnRouteCountLoggedDevices),
+    withCatchException(async () =>
+      db.usingSession(async session => {
+        const data = await deviceController.getCount(session, {
+          [DeviceProps.isLogged]: true,
+        });
         return data;
       }, true),
     ),
