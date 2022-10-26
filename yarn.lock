@@ -1022,10 +1022,10 @@ cross-spawn@^7.0.1, cross-spawn@^7.0.2:
     shebang-command "^2.0.0"
     which "^2.0.1"
 
-crud-node@^1.1.7:
-  version "1.1.7"
-  resolved "https://registry.yarnpkg.com/crud-node/-/crud-node-1.1.7.tgz#ecb69f69480565d690a9c6daafa654660f79de66"
-  integrity sha512-8Xe84xWEU35kCmWpEAIJuQMZ1dPT/cs7JSo1/ya/ZH/S77J4/55IFTykbDI8dtFJ0Zcilu1Ea3BNWlFMOwfEtQ==
+crud-node@^1.1.8:
+  version "1.1.8"
+  resolved "https://registry.yarnpkg.com/crud-node/-/crud-node-1.1.8.tgz#5ea8014a7c3e85c887634839e91f9f790e73960c"
+  integrity sha512-nDjmr0Zr4G+mZiQ0p+JzL2aIXHw/IpDF+I+/z8PfTCBZ9uK/m0JZNpx+OVSdk5vsR7NulphCRyQiQQRpPSTGcw==
   dependencies:
     "@mysql/xdevapi" "8.0.28"
     knex "2.1.0"
