@@ -119,24 +119,22 @@ export const userRouter = (app: IAppWithControllers & IAppWithDatabase<ClientDat
   );
 
   /**
-   * PREMIUM
-   * -------
    * Retrieve user devices
-   * /v1/device-manager/user/:userId
+   * /v1/device-manager/user/:userId/list
    */
-  // router.delete(
-  //   '/:userId/list',
-  //   withJoi(userSchema.getUserDevices, 'params', errors.errorOnRouteGetUserDevices),
-  //   withCatchException(async req =>
-  //     db.usingSession(async session => {
-  //       const {
-  //         params: { userId },
-  //       } = req;
-  //       const data = await deviceController.filterDocuments(session, { userId });
-  //       return data;
-  //     }, true),
-  //   ),
-  // );
+  router.delete(
+    '/:userId/list',
+    withJoi(userSchema.getUserDevices, 'params', errors.errorOnRouteGetUserDevices),
+    withCatchException(async req =>
+      db.usingSession(async session => {
+        const {
+          params: { userId },
+        } = req;
+        const data = await deviceController.filterDocuments(session, { userId });
+        return data;
+      }, true),
+    ),
+  );
 
   return router;
 };
