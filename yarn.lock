@@ -1182,10 +1182,10 @@ cross-spawn@^7.0.1, cross-spawn@^7.0.2:
     shebang-command "^2.0.0"
     which "^2.0.1"
 
-crud-node@1.2.0:
-  version "1.2.0"
-  resolved "https://registry.yarnpkg.com/crud-node/-/crud-node-1.2.0.tgz#564465ded3b80bd6046610721d7169d9eb9da5d6"
-  integrity sha512-15AJcEQFYdcr8CdAKrXZqQT4WlrwfaNy9ujUPb6DB2ipW/t8rUgeSvI8v1YnVYeaDJ9LidqagpcdZ4II/AeFug==
+crud-node@1.2.1:
+  version "1.2.1"
+  resolved "https://registry.yarnpkg.com/crud-node/-/crud-node-1.2.1.tgz#34bad2cfd0328fc336ea72014265429f3fed5eb6"
+  integrity sha512-TbgpmZJgucZzcYnqVwLdYSXMtFEsRxNOD6/LlRLcmHDS1npEZaSJiWnYUJD4SupQ8qeTSwMCs2G1+hMi9TP5VA==
   dependencies:
     "@mysql/xdevapi" "8.0.28"
     "@trivago/prettier-plugin-sort-imports" "^4.1.1"
